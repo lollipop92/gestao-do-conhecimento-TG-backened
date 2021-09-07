@@ -1,4 +1,4 @@
-package com.gestaoconhecimento.usuario;
+package com.gestaoconhecimento.model;
 
 import java.io.Serializable;
 import java.util.Objects;

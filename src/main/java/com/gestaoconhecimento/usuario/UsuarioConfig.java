@@ -7,6 +7,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.gestaoconhecimento.model.Usuario;
+import com.gestaoconhecimento.repository.UsuarioRepository;
+
 @Configuration
 public class UsuarioConfig {
 	
@@ -14,11 +17,11 @@ public class UsuarioConfig {
 	CommandLineRunner commandLineRunner(UsuarioRepository repository) {
 		return args -> {
 			Usuario numero1 = new Usuario( 
-					"nome1",
-					"email1",
-					"senha1",
-					"cargo1",
-					"setor1"
+					"Amanda",
+					"amanda@example.com",
+					"Amanda2021",
+					"admin",
+					"TI"
 					);
 			Usuario numero2 = new Usuario( 
 					"nome2",

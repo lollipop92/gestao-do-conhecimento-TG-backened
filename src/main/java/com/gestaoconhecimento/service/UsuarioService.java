@@ -1,4 +1,4 @@
-package com.gestaoconhecimento.usuario;
+package com.gestaoconhecimento.service;
 
 import java.io.Console;
 import java.util.List;
@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.gestaoconhecimento.model.Usuario;
+import com.gestaoconhecimento.repository.UsuarioRepository;
+
 @Service
 public class UsuarioService {	
 	
@@ -22,22 +25,32 @@ public class UsuarioService {
 	}
 	
 	// Mostrar todos os usuários
-	public List<Usuario> getUsuario() {
+	public List<Usuario> getUsuarios() {
 		return usuarioRepository.findAll();
 				
 	}
+	
+	// Mostrar o usuário
+		public Usuario getUsuario(Long usuarioId) {
+			
+			Usuario usuario = usuarioRepository.findById(usuarioId).orElseThrow(() -> new IllegalStateException(
+					"Usuário com identificação "+usuarioId+ " não existe."));
+			return usuario;
+					
+		}
 
 	//Adicionar usuário verificando se o email já existe
-	public void adicionarNovoUsuario(Usuario usuario) {
+	public Usuario adicionarNovoUsuario(Usuario usuario) {
 		
 		System.out.println(usuario);
 		
 		
-		Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(usuario.getEmail());
+		Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail2(usuario.getEmail());
 		if (usuarioOptional.isPresent()) {
 			throw new IllegalStateException("Email já existente!");
 		}
 		usuarioRepository.save(usuario);
+		return usuario;
 		
 		
 	}
@@ -66,7 +79,7 @@ public class UsuarioService {
 			}
 	
 		if (email != null && email.length() > 0 && !Objects.equals(usuario.getEmail(), email)) {
-			Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail(email);
+			Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail2(email);
 			if (usuarioOptional.isPresent()) {
 				throw new IllegalStateException("o email já é utilizado.");
 				}
@@ -85,6 +98,14 @@ public class UsuarioService {
 			usuario.setCargo(cargo);
 			}
 				
+	}
+	
+	public Usuario selecionarUsuarioPorEmail(String email) {		
+		return usuarioRepository.findByEmail(email);
+	}
+	
+	public Usuario selecionarUsuarioPorEmailSenha(String email, String senha) {		
+		return usuarioRepository.findByEmailAndSenha(email,senha);
 	}
 
 }
