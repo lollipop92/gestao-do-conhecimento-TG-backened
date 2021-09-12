@@ -87,7 +87,8 @@ public class UsuarioController {
 		usuarioService.deletarUsuario(usuarioId);
 	}
 	
-	
+	/**
+	// versão edição com dados na URL
 	@PutMapping(path = "{usuarioId}")
 	public void editarUsuario(
 			@PathVariable("usuarioId") Long usuarioId,
@@ -99,7 +100,17 @@ public class UsuarioController {
 		
 		usuarioService.editarUsuario(usuarioId, nome, email, senha, setor, cargo);
 		
-	}
+	}**/
 	
+	// versão edição com dados dados no body
+	// numero 2
+	@PutMapping(path = "{usuarioId}")
+	public void editarUsuario(
+			@PathVariable("usuarioId") Long usuarioId,@RequestBody Usuario usuario
+			) {
+		
+		usuarioService.editarUsuario(usuarioId, usuario.getNome(), usuario.getEmail(), usuario.getSenha(), usuario.getSetor(), usuario.getCargo());
+		
+	}
 	
 }
