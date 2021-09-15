@@ -2,7 +2,6 @@ package com.gestaoconhecimento.usuario;
 
 import java.util.List;
 
-import org.aspectj.weaver.patterns.ArgsAnnotationPointcut;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

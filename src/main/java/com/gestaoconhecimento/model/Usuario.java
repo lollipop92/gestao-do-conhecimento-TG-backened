@@ -10,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import net.bytebuddy.implementation.bytecode.assign.reference.GenericTypeAwareAssigner;
-
 @Entity
 @Table
 public class Usuario implements Serializable{
