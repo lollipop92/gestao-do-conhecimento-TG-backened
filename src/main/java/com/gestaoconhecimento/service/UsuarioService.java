@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -106,4 +107,17 @@ public class UsuarioService {
 		return usuarioRepository.findByEmailAndSenha(email,senha);
 	}
 
+	public String gerarNovaSenha(String email) {
+		Optional<Usuario> usuarioOptional = usuarioRepository.findByEmail2(email);
+		if (usuarioOptional.isPresent()) {
+			String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789~`!@#$%^&*()-_=+[{]}\\|;:\'\",<.>/?";
+			String pwd = RandomStringUtils.random( 15, characters );
+			Usuario usuario = selecionarUsuarioPorEmail(email);
+			usuario.setSenha(pwd);
+			usuarioRepository.save(usuario);
+			return pwd;		  
+		}else {
+			throw new IllegalStateException("Email não existente!");
+		}		
+	}
 }
