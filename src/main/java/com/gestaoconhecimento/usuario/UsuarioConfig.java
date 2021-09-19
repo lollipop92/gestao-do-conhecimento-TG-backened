@@ -24,7 +24,7 @@ public class UsuarioConfig {
 					);
 			Usuario numero2 = new Usuario( 
 					"nome2",
-					"email2",
+					"amanda@learnhow.com",
 					"senha2",
 					"cargo2",
 					"setor2"
