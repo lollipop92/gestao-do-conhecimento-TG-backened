@@ -21,6 +21,12 @@ public class ConfigConfig {
 			Config numero2 = new Config(
 					"Numero máximo de processos",
 					"10");
+			Config numero3 = new Config(
+					"Setores",
+					"10");
+			Config numero4 = new Config(
+					"Cargos",
+					"10");
 			
 			repository.saveAll(List.of(numero1,numero2));
 		};
