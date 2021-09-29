@@ -83,8 +83,16 @@ public class BaseConhecimentoService {
 			}
 		if (recursoDuvida != null && recursoDuvida.length() > 0 && !Objects.equals(baseConhecimento.getRecursoDuvida(), recursoDuvida)) {
 			baseConhecimento.setRecursoDuvida(recursoDuvida);
-			}
+			}		
 		
+	}
+
+	public void deletarUsuario(Long baseConhecimentoId) {
+		boolean existe = baseConhecimentoRepository.existsById(baseConhecimentoId);
+		if (!existe) {
+			throw new IllegalStateException("Base de conhecimento com identificação "+baseConhecimentoId+ " não existe.");			
+		}
+		baseConhecimentoRepository.deleteById(baseConhecimentoId);
 		
 	}
 
