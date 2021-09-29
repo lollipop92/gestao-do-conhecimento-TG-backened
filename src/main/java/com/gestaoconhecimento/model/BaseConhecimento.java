@@ -3,12 +3,16 @@ package com.gestaoconhecimento.model;
 import java.io.File;
 import java.io.Serializable;
 
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.xml.crypto.Data;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
@@ -35,7 +39,7 @@ public class BaseConhecimento implements Serializable{
 	private String perfil;
 	private String termosTecnicos;
 	private String orientacao;
-	private File fluxograma;
+	private String fluxograma;
 	private String procedimentos;
 	private String tempo;
 	private String indicadores;
@@ -51,7 +55,7 @@ public class BaseConhecimento implements Serializable{
 
 	public BaseConhecimento(String processo, String etapa, String vigencia, String objetivo, String campoAplicacao,
 			String competencia, String treinamento, String perfil, String termosTecnicos, String orientacao,
-			File fluxograma, String procedimentos, String tempo, String indicadores, String relatorioGestao,
+			String fluxograma, String procedimentos, String tempo, String indicadores, String relatorioGestao,
 			String normas, String recursoDuvida, Long autor) {
 		super();
 		this.processo = processo;
@@ -76,7 +80,7 @@ public class BaseConhecimento implements Serializable{
 
 	public BaseConhecimento(Long id, String processo, String etapa, String vigencia, String objetivo,
 			String campoAplicacao, String competencia, String treinamento, String perfil, String termosTecnicos,
-			String orientacao, File fluxograma, String procedimentos, String tempo, String indicadores,
+			String orientacao, String fluxograma, String procedimentos, String tempo, String indicadores,
 			String relatorioGestao, String normas, String recursoDuvida, Long autor) {
 		super();
 		this.id = id;
@@ -214,11 +218,11 @@ public class BaseConhecimento implements Serializable{
 		this.orientacao = orientacao;
 	}
 
-	public File getFluxograma() {
+	public String getFluxograma() {
 		return fluxograma;
 	}
 
-	public void setFluxograma(File fluxograma) {
+	public void setFluxograma(String fluxograma) {
 		this.fluxograma = fluxograma;
 	}
 
