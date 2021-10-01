@@ -28,10 +28,11 @@ public class Processo implements Serializable{
 			generator = "processo_sequence"
 			)
 	private Long id;
-	private Long mestre;
-	private Long aprendiz;
-	private String data;
-	private String titulo;
+	private String processo;
+	private String etapa;
+	private Long treinador;
+	private Long treinado;
+	private String data;	
 	private String status;
 	private int etapaIndice;
 	private String etapa1;
@@ -44,13 +45,15 @@ public class Processo implements Serializable{
 		
 	}
 
-	public Processo(Long mestre, Long aprendiz, String data, String titulo, String status, int etapaIndice, String etapa1,
-			String etapa2, String etapa3, String etapa4) {
+	public Processo(Long id, String processo, String etapa, Long treinador, Long treinado, String data, String status,
+			int etapaIndice, String etapa1, String etapa2, String etapa3, String etapa4) {
 		super();
-		this.mestre = mestre;
-		this.aprendiz = aprendiz;
+		this.id = id;
+		this.processo = processo;
+		this.etapa = etapa;
+		this.treinador = treinador;
+		this.treinado = treinado;
 		this.data = data;
-		this.titulo = titulo;
 		this.status = status;
 		this.etapaIndice = etapaIndice;
 		this.etapa1 = etapa1;
@@ -59,14 +62,30 @@ public class Processo implements Serializable{
 		this.etapa4 = etapa4;
 	}
 
-	public Processo(Long id, Long mestre, Long aprendiz, String data, String titulo, String status, int etapaIndice,
-			String etapa1, String etapa2, String etapa3, String etapa4) {
+	public Processo(String processo, String etapa, Long treinador, Long treinado, String data, String status,
+			int etapaIndice, String etapa1, String etapa2, String etapa3, String etapa4) {
+		super();
+		this.processo = processo;
+		this.etapa = etapa;
+		this.treinador = treinador;
+		this.treinado = treinado;
+		this.data = data;
+		this.status = status;
+		this.etapaIndice = etapaIndice;
+		this.etapa1 = etapa1;
+		this.etapa2 = etapa2;
+		this.etapa3 = etapa3;
+		this.etapa4 = etapa4;
+	}
+
+	public Processo(Long id, String processo, String etapa, Long treinador, Long treinado, String status,
+			int etapaIndice, String etapa1, String etapa2, String etapa3, String etapa4) {
 		super();
 		this.id = id;
-		this.mestre = mestre;
-		this.aprendiz = aprendiz;
-		this.data = data;
-		this.titulo = titulo;
+		this.processo = processo;
+		this.etapa = etapa;
+		this.treinador = treinador;
+		this.treinado = treinado;
 		this.status = status;
 		this.etapaIndice = etapaIndice;
 		this.etapa1 = etapa1;
@@ -83,20 +102,36 @@ public class Processo implements Serializable{
 		this.id = id;
 	}
 
-	public Long getMestre() {
-		return mestre;
+	public String getProcesso() {
+		return processo;
 	}
 
-	public void setMestre(Long mestre) {
-		this.mestre = mestre;
+	public void setProcesso(String processo) {
+		this.processo = processo;
 	}
 
-	public Long getAprendiz() {
-		return aprendiz;
+	public String getEtapa() {
+		return etapa;
 	}
 
-	public void setAprendiz(Long aprendiz) {
-		this.aprendiz = aprendiz;
+	public void setEtapa(String etapa) {
+		this.etapa = etapa;
+	}
+
+	public Long getTreinador() {
+		return treinador;
+	}
+
+	public void setTreinador(Long treinador) {
+		this.treinador = treinador;
+	}
+
+	public Long getTreinado() {
+		return treinado;
+	}
+
+	public void setTreinado(Long treinado) {
+		this.treinado = treinado;
 	}
 
 	public String getData() {
@@ -105,14 +140,6 @@ public class Processo implements Serializable{
 
 	public void setData(String data) {
 		this.data = data;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
 	}
 
 	public String getStatus() {
@@ -165,13 +192,13 @@ public class Processo implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Processo [id=" + id + ", mestre=" + mestre + ", aprendiz=" + aprendiz + ", data=" + data + ", titulo="
-				+ titulo + ", status=" + status + ", etapaIndice=" + etapaIndice + ", etapa1=" + etapa1 + ", etapa2="
-				+ etapa2 + ", etapa3=" + etapa3 + ", etapa4=" + etapa4 + "]";
+		return "Processo [id=" + id + ", processo=" + processo + ", etapa=" + etapa + ", treinador=" + treinador
+				+ ", treinado=" + treinado + ", data=" + data + ", status=" + status + ", etapaIndice=" + etapaIndice
+				+ ", etapa1=" + etapa1 + ", etapa2=" + etapa2 + ", etapa3=" + etapa3 + ", etapa4=" + etapa4 + "]";
 	}
 	
 	
 	
-	
-	
 }
+
+	

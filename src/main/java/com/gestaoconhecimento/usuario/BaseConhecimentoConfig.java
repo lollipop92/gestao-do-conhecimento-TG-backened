@@ -18,10 +18,10 @@ public class BaseConhecimentoConfig {
 		return args -> {
 			
 			BaseConhecimento numero1 = new BaseConhecimento(
-					"processo",
-					"etapa",
+					"Contas a pagar",
+					"bloquear forncedor",
 					"2021-09-28",
-					"objetivo",
+					"bloquear forncedor para pagamento e compras",
 					"campoAplicacao",
 					"competencia",
 					"Sim",
@@ -37,10 +37,10 @@ public class BaseConhecimentoConfig {
 					2L);
 			
 			BaseConhecimento numero2 = new BaseConhecimento(
-					"processo2",
-					"etapa2",
+					"Contas a pagar",
+					"agendar pagamento",
 					"2021-09-28",
-					"objetivo",
+					"agendar pagamentos dos fornecedores",
 					"campoAplicacao",
 					"competencia",
 					"Não",
