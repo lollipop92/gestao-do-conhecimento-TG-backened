@@ -1,6 +1,5 @@
 package com.gestaoconhecimento.model;
 
-import java.io.File;
 import java.io.Serializable;
 
 
@@ -8,16 +7,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.xml.crypto.Data;
 
-import org.springframework.web.multipart.MultipartFile;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table
 public class BaseConhecimento implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@SequenceGenerator(
 			name = "baseConhecimento_sequence",
@@ -39,6 +40,8 @@ public class BaseConhecimento implements Serializable{
 	private String perfil;
 	private String termosTecnicos;
 	private String orientacao;
+	@JsonIgnore
+	@JoinColumn(name = "files_id")
 	private String fluxograma;
 	private String procedimentos;
 	private String tempo;
@@ -47,6 +50,9 @@ public class BaseConhecimento implements Serializable{
 	private String normas;
 	private String recursoDuvida;
 	private Long autor;
+	@JsonIgnore
+	@JoinColumn(name = "files_id")
+	private String arquivoComplementar;
 	
 	public BaseConhecimento() {
 		super();
@@ -281,6 +287,14 @@ public class BaseConhecimento implements Serializable{
 
 	public void setAutor(Long autor) {
 		this.autor = autor;
+	}
+
+	public String getArquivoComplementar() {
+		return arquivoComplementar;
+	}
+
+	public void setArquivoComplementar(String arquivoComplementar) {
+		this.arquivoComplementar = arquivoComplementar;
 	}
 
 	@Override
