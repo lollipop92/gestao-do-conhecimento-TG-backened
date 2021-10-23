@@ -58,6 +58,8 @@ public class BaseConhecimento implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 	public BaseConhecimento(String processo, String etapa, String vigencia, String objetivo, String campoAplicacao,
 			String competencia, String treinamento, String perfil, String termosTecnicos, String orientacao,
