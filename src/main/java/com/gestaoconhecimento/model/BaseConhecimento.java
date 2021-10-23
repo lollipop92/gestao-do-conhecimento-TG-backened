@@ -40,7 +40,6 @@ public class BaseConhecimento implements Serializable{
 	private String perfil;
 	private String termosTecnicos;
 	private String orientacao;
-	@JsonIgnore
 	@JoinColumn(name = "files_id")
 	private String fluxograma;
 	private String procedimentos;
@@ -50,7 +49,6 @@ public class BaseConhecimento implements Serializable{
 	private String normas;
 	private String recursoDuvida;
 	private Long autor;
-	@JsonIgnore
 	@JoinColumn(name = "files_id")
 	private String arquivoComplementar;
 	
