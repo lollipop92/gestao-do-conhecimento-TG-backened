@@ -106,7 +106,7 @@ public class Processo implements Serializable{
 		return processo;
 	}
 
-	public void setProcesso(String processo) {
+	public void setProcesso(String processo) {	
 		this.processo = processo;
 	}
 

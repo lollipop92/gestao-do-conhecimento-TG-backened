@@ -3,6 +3,8 @@ package com.gestaoconhecimento.service;
 import java.util.List;
 import java.util.Objects;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,14 +38,16 @@ public class ProcessoService {
 		processoRepository.save(processo);
 		
 	}
-
+	@Transactional
 	public void editarBaseConhecimento(Long processoId, String processo, String etapa, Long treinador, Long treinado,
 			String data, String status, int etapaIndice, String etapa1, String etapa2, String etapa3, String etapa4) {
 		
+				
 		Processo processoAprendizagem = processoRepository.findById(processoId).orElseThrow(() -> new IllegalStateException( "Processo com identificação "+processoId+ " não existe."));
 		
+		
 		if (processo != null && processo.length() > 0 && !Objects.equals(processoAprendizagem.getProcesso(), processo)) {
-			processoAprendizagem.setProcesso(processo);
+			processoAprendizagem.setProcesso(processo);			
 		}
 		if (etapa != null && etapa.length() > 0 && !Objects.equals(processoAprendizagem.getEtapa(), etapa)) {
 			processoAprendizagem.setEtapa(etapa);
@@ -74,7 +78,7 @@ public class ProcessoService {
 		}	
 		if (etapa4 != null && etapa4.length() > 0 && !Objects.equals(processoAprendizagem.getEtapa4(), etapa4)) {
 			processoAprendizagem.setEtapa4(etapa4);
-		}	
+		}			
 	
 	}
 }
